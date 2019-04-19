@@ -1,3 +1,24 @@
 button, div, form, input {
     margin: 10px;
 }
+
+.btn-dark {
+    width: auto;
+    float: left;
+}
+
+#buttons-view {
+    padding: 30px;
+}
+
+.giphy {
+    padding: 30px;
+}
+
+.card {
+    width: 400px;
+    float: left;
+}
+.container {
+    clear: both;
+}

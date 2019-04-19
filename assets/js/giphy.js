@@ -15,34 +15,32 @@ function displaygiphyInfo() {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
 
     //TODO delete this later
     console.log(response);
 
+
     // Creating a div to hold the giphy
-    var giphyDiv = $("<div class='giphy'>");
+    var giphyDiv = $("<div class='container'>");
 
-    // Storing the rating data
-    var rating = response.data[0].rating;
+    for (var i = 0; i < response.data.length; i++) {
+      var giphyCard = $("<div class='card'>");
+      var rating = response.data[i].rating;
+      var pOne = $("<p>").text("Rating: " + rating);
+      giphyCard.append(pOne);
 
-    // Creating an element to have the rating displayed
-    var pOne = $("<p>").text("Rating: " + rating);
+      // Retrieving the URL for the image
+      var imgURL = response.data[i].images.original.url;
+      var image = $("<img>").attr("src", imgURL);
+      giphyCard.append(image);
 
-    // Displaying the rating
-    giphyDiv.append(pOne);
+      giphyDiv.append(giphyCard);
+    }
 
-    // Retrieving the URL for the image
-    var imgURL = response.data[0].images["480w_still"].url;
 
-    // Creating an element to hold the image
-    var image = $("<img>").attr("src", imgURL);
-
-    // Appending the image
-    giphyDiv.append(image);
-
-    // Putting the entire giphy above the previous giphys
-    $("#buttons-view").prepend(giphyDiv);
+    // Adding the div to the page
+    $("#giphys-here").empty().prepend(giphyDiv);
   });
 
 }
@@ -61,7 +59,7 @@ function renderButtons() {
     // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
     var a = $("<button>");
     // Adding a class of giphy-btn to our button
-    a.addClass("giphy-btn");
+    a.addClass("giphy-btn btn btn-dark btn-block rounded-pill");
     // Adding a data-attribute
     a.attr("data-name", topics[i]);
     // Providing the initial button text
@@ -72,7 +70,7 @@ function renderButtons() {
 }
 
 // This function handles events where a giphy button is clicked
-$("#add-giphy").on("click", function(event) {
+$("#add-giphy").on("click", function (event) {
   event.preventDefault();
   // This line grabs the input from the textbox
   var giphy = $("#giphy-input").val().trim();
@@ -87,5 +85,5 @@ $("#add-giphy").on("click", function(event) {
 // Adding a click event listener to all elements with a class of "giphy-btn"
 $(document).on("click", ".giphy-btn", displaygiphyInfo);
 
-// Calling the renderButtons function to display the intial buttons
+// Calling the renderButtons function to display the initial buttons
 renderButtons();
