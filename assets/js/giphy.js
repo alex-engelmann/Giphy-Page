@@ -10,7 +10,6 @@ function displaygiphyInfo() {
 
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + q + "&api_key=" + apiKey + "&limit=10"
 
-
   // Creating an AJAX call for the specific giphy button being clicked
   $.ajax({
     url: queryURL,
@@ -20,9 +19,10 @@ function displaygiphyInfo() {
     //TODO delete this later
     console.log(response);
 
-
     // Creating a div to hold the giphy
     var giphyDiv = $("<div class='container'>");
+
+    //Filling up the div with 10 cards:
 
     for (var i = 0; i < response.data.length; i++) {
       var giphyCard = $("<div class='card'>");
@@ -30,14 +30,15 @@ function displaygiphyInfo() {
       var pOne = $("<p>").text("Rating: " + rating);
       giphyCard.append(pOne);
 
-      // Retrieving the URL for the image
-      var imgURL = response.data[i].images.original.url;
-      var image = $("<img>").attr("src", imgURL);
+      // Retrieving the URLs for the image
+      var image = $("<img class = 'gif'>").attr("src", response.data[i].images.original_still.url);
+      image.attr("data-still", response.data[i].images.original_still.url);
+      image.attr("data-animate", response.data[i].images.original.url );
+      image.attr("data-state", "still");
       giphyCard.append(image);
 
       giphyDiv.append(giphyCard);
     }
-
 
     // Adding the div to the page
     $("#giphys-here").empty().prepend(giphyDiv);
@@ -52,7 +53,7 @@ function renderButtons() {
   // (this is necessary otherwise you will have repeat buttons)
   $("#buttons-view").empty();
 
-  // Looping through the array of giphys
+  // Looping through the array of topics
   for (var i = 0; i < topics.length; i++) {
 
     // Then dynamicaly generating buttons for each giphy in the array
@@ -69,7 +70,7 @@ function renderButtons() {
   }
 }
 
-// This function handles events where a giphy button is clicked
+// This function handles events where a topic button is clicked
 $("#add-giphy").on("click", function (event) {
   event.preventDefault();
   // This line grabs the input from the textbox
@@ -77,13 +78,26 @@ $("#add-giphy").on("click", function (event) {
 
   // Adding giphy from the textbox to our array
   topics.push(giphy);
-
-  // Calling renderButtons which handles the processing of our giphy array
+  // Calling renderButtons which handles the processing of our button array
   renderButtons();
 });
 
 // Adding a click event listener to all elements with a class of "giphy-btn"
 $(document).on("click", ".giphy-btn", displaygiphyInfo);
+
+// This function handles events when an image is clicked
+$(document).on("click", ".gif", animateGif);
+
+function animateGif() {
+  var state = $(this).attr("data-state");
+  if (state === "still") {
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+  } else {
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+  }
+};
 
 // Calling the renderButtons function to display the initial buttons
 renderButtons();
