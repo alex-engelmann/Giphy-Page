@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Giphy App</title>
+
+    <!-- Bootstrap CSS CDN  -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" >
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Giphy Search</h1>
+
+        <!-- Rendered Buttons will get Dumped Here  -->
+        <div id="buttons-view"></div>
+
+        <form id="giphy-form">
+            <label for="giphy-input">Add a Giphy, Yo!</label>
+            <input type="text" id="giphy-input"><br>
+
+            <!-- Button triggers new giphy to be added -->
+            <input id="add-giphy" type="submit" value="Add a Giphy, Yo!">
+        </form>
+
+    </div>
+
+    <!-- jQuery JS -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Code to the JavaScript File -->
+    <script src="./assets/js/giphy.js"></script>
+</body>
+
+</html>
