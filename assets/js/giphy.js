@@ -1,5 +1,5 @@
 // Initial array of animals
-var topics = ["Badger", "Dog", "Giraffe", "Elephant"];
+var topics = ["Badger", "Dog", "Giraffe", "Elephant", "Penguin", "Nautilus", "Octopus"];
 
 // displaygiphyInfo function re-renders the HTML to display the appropriate content
 function displaygiphyInfo() {
@@ -16,9 +16,6 @@ function displaygiphyInfo() {
     method: "GET"
   }).then(function (response) {
 
-    //TODO delete this later
-    console.log(response);
-
     // Creating a div to hold the giphy
     var giphyDiv = $("<div class='container'>");
 
@@ -26,7 +23,7 @@ function displaygiphyInfo() {
 
     for (var i = 0; i < response.data.length; i++) {
       var giphyCard = $("<div class='card'>");
-      var rating = response.data[i].rating;
+      var rating = response.data[i].rating.toUpperCase();
       var pOne = $("<p>").text("Rating: " + rating);
       giphyCard.append(pOne);
 
@@ -82,12 +79,7 @@ $("#add-giphy").on("click", function (event) {
   renderButtons();
 });
 
-// Adding a click event listener to all elements with a class of "giphy-btn"
-$(document).on("click", ".giphy-btn", displaygiphyInfo);
-
 // This function handles events when an image is clicked
-$(document).on("click", ".gif", animateGif);
-
 function animateGif() {
   var state = $(this).attr("data-state");
   if (state === "still") {
@@ -99,5 +91,8 @@ function animateGif() {
   }
 };
 
+// Adding a few event listeners
+$(document).on("click", ".giphy-btn", displaygiphyInfo);
+$(document).on("click", ".gif", animateGif);
 // Calling the renderButtons function to display the initial buttons
 renderButtons();
