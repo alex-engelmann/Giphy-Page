@@ -5,6 +5,7 @@ var topics = ["Badger", "Dog", "Giraffe", "Elephant", "Penguin", "Nautilus", "Oc
 function displaygiphyInfo() {
 
   var animalChosen = $(this).attr("data-name");
+  
   var apiKey = "WCHN2qn2SF0CSj3127OzqiC8YPm0oUXl"
   var q = animalChosen;
 
@@ -30,7 +31,7 @@ function displaygiphyInfo() {
       // Retrieving the URLs for the image
       var image = $("<img class = 'gif'>").attr("src", response.data[i].images.original_still.url);
       image.attr("data-still", response.data[i].images.original_still.url);
-      image.attr("data-animate", response.data[i].images.original.url );
+      image.attr("data-animate", response.data[i].images.original.url);
       image.attr("data-state", "still");
       giphyCard.append(image);
 
