@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Giphy App</title>
+    <title>GIF Search</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Copse&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS CDN  -->
     <link rel="stylesheet"
@@ -17,9 +20,9 @@
 <body>
     <div class="container">
         <h1>GIF Search</h1>
-        <img src="./assets/images/Giphy Attribution Marks/Animated Logos/PoweredBy_200_Horizontal_Light-Backgrounds_With_Logo.gif">
 
-        <form id="giphy-form">
+
+        <form class="grid-container" id="giphy-form">
 
             <label for="giphy-input">Choose an animal: </label>
             <input type="text" id="giphy-input"><br>
@@ -28,14 +31,20 @@
             <input id="add-giphy" type="submit" class="btn btn-dark btn-block rounded-pill" value="Add Animal">
         </form>
 
-        <!-- Rendered Buttons will get dumped Here  -->
-        <div class="container" id="buttons-view">
+        <!-- Rendered buttons will get dumped Here  -->
+        <div class="grid-container" id="buttons-view">
         </div>
         <br>
-
-        <div class="container" id="giphys-here"></div>
+        <!-- Rendered cards will get dumped Here  -->
+        <div class="grid-container" id="giphys-here"></div>
 
     </div>
+
+    <!-- Footer -->
+    
+    <footer><img id="giphy-powered"
+            src="./assets/images/Giphy Attribution Marks/Animated Logos/PoweredBy_640_Horizontal_Light-Backgrounds_With_Logo.gif">
+    </footer>
 
     <!-- jQuery JS -->
     <script src="https://code.jquery.com/jquery.js"></script>

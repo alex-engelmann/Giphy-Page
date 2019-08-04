@@ -1,19 +1,50 @@
 body {
     background-image: url(../images/paisley.png);
+    font-family: 'Copse', serif;
+}
+h1 {
+    align-content: center;
+    text-align: center;
+    font-family: 'Copse', serif;
 }
 
+#giphy-powered {
+    width: 25%;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 button, div, form, input {
     margin: 10px;
 }
 
+.grid-container {
+    display: grid;
+    grid-column-gap: 10px;
+    grid-row-gap: 5px;
+    grid-template-columns: auto auto auto auto ;
+    background-color: rgba(28, 9, 134, 0.507);
+    padding: 0px;
+}
+
+.grid-item{
+    display: grid;
+   
+}
 .btn-dark {
     width: auto;
-    float: left;
 }
 
 #buttons-view {
     padding: 30px;
+}
+
+#add-giphy{
+    width: auto;
 }
 
 .giphy {
@@ -21,9 +52,10 @@ button, div, form, input {
 }
 
 .card {
-    width: 400px;
+    width: 40%;
     float: left;
 }
+
 .container {
     clear: both;
 }

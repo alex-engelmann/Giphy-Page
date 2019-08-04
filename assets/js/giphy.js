@@ -58,7 +58,7 @@ function renderButtons() {
     // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
     var a = $("<button>");
     // Adding a class of giphy-btn to our button
-    a.addClass("giphy-btn btn btn-dark btn-block rounded-pill");
+    a.addClass("grid-item giphy-btn btn btn-dark btn-block rounded-pill");
     // Adding a data-attribute
     a.attr("data-name", topics[i]);
     // Providing the initial button text
@@ -97,3 +97,4 @@ $(document).on("click", ".giphy-btn", displaygiphyInfo);
 $(document).on("click", ".gif", animateGif);
 // Calling the renderButtons function to display the initial buttons
 renderButtons();
+
