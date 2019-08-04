@@ -7,6 +7,13 @@ h1 {
     text-align: center;
     font-family: 'Copse', serif;
 }
+h2 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+
+    
+}
 
 #giphy-powered {
     width: 25%;
@@ -43,19 +50,12 @@ button, div, form, input {
     padding: 30px;
 }
 
-#add-giphy{
+#add-animal{
     width: auto;
-}
-
-.giphy {
-    padding: 30px;
 }
 
 .card {
     width: 40%;
+    height: auto;
     float: left;
-}
-
-.container {
-    clear: both;
 }

@@ -69,7 +69,7 @@ function renderButtons() {
 }
 
 // This function handles events where a topic button is clicked
-$("#add-giphy").on("click", function (event) {
+$("#add-animal").on("click", function (event) {
   event.preventDefault();
   // This line grabs the input from the textbox
   var giphy = $("#giphy-input").val().trim();
