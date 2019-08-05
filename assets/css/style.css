@@ -37,9 +37,13 @@ button, div, form, input {
     
     grid-column-gap: 10px;
     grid-row-gap: 5px;
-    grid-template-columns: auto auto;
-    background-color: rgba(28, 9, 134, 0.507);
+    grid-template-columns: auto;
+    background-color: #F06769;
     padding: 0px;
+    border-width: 5px;
+    border-style: outset;
+    border-color: #F06769
+
 }
 
 .flex-container2 {
@@ -50,19 +54,26 @@ button, div, form, input {
     grid-column-gap: 10px;
     grid-row-gap: 5px;
     grid-template-columns: auto auto auto ;
-    background-color: rgba(28, 9, 134, 0.507);
+    background-color: #9E31FF;
     padding: 0px;
+    border-width: 5px;
+    border-style: outset;
+    border-color: #9E31FF;
 }
 
 .flex-container3 {
     display: flex;
-    flex-flow: column;
+    flex-flow: row;
     flex-wrap: wrap;
+    justify-content: center;
     grid-column-gap: 10px;
     grid-row-gap: 5px;
-    grid-template-columns: auto auto auto auto ;
-    background-color: rgba(28, 9, 134, 0.507);
+    grid-template-columns: auto auto auto ;
+    background-color: #1CD3DB;
     padding: 0px;
+    border-width: 5px;
+    border-style: outset;
+    border-color: #1CD3DB;
 }
 
 .grid-item, input, h2 {
@@ -74,7 +85,7 @@ img {
     height:auto;
 }
 
-.rating {
+.title {
     text-align: center;
 }
 
@@ -95,5 +106,8 @@ img {
     max-width: 30%;
     height: auto;
     display: flex;
+    border-width: 3px;
+    border-style: outset;
+    border-color: grey;
     
 }

@@ -16,20 +16,24 @@ function displaygiphyInfo() {
     url: queryURL,
     method: "GET"
   }).then(function (response) {
+    console.log(response);
 
     // Creating a div to hold the giphy
-    var giphyDiv = $("<div class='flex-container2'>");
+    var giphyDiv = $("<div class='flex-container3'>");
 
     //Filling up the div with 10 cards:
 
     for (var i = 0; i < response.data.length; i++) {
-      var giphyCard = $("<div class='card'>");
-      var rating = response.data[i].rating.toUpperCase();
-      var pOne = $("<p class='rating'>").text("Rating: " + rating);
-      giphyCard.append(pOne);
+      let giphyCard = $("<div class='card'>");
+      let title = response.data[i].title.toString();
+      let upperTitle = title.replace(/^\w/, c => c.toUpperCase());
+      let filteredTitle = upperTitle.slice(0, upperTitle.indexOf("GIF"));
+
+      let pTitle = $("<p class='title'>").text(filteredTitle);
+      giphyCard.append(pTitle);
 
       // Retrieving the URLs for the image
-      var image = $("<img class = 'gif'>").attr("src", response.data[i].images.original_still.url);
+      let image = $("<img class = 'gif'>").attr("src", response.data[i].images.original_still.url);
       image.attr("data-still", response.data[i].images.original_still.url);
       image.attr("data-animate", response.data[i].images.original.url);
       image.attr("data-state", "still");
