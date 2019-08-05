@@ -1,11 +1,11 @@
 // Initial array of animals
-var topics = ["Badger", "Dog", "Giraffe", "Elephant", "Penguin", "Nautilus", "Octopus"];
+var animals = ["Badger", "Dog", "Giraffe", "Elephant", "Penguin", "Nautilus", "Octopus"];
 
 // displaygiphyInfo function re-renders the HTML to display the appropriate content
-function displaygiphyInfo() {
+function displayGiphyCards() {
 
   var animalChosen = $(this).attr("data-name");
-  
+
   var apiKey = "WCHN2qn2SF0CSj3127OzqiC8YPm0oUXl"
   var q = animalChosen;
 
@@ -16,9 +16,8 @@ function displaygiphyInfo() {
     url: queryURL,
     method: "GET"
   }).then(function (response) {
-    console.log(response);
 
-    // Creating a div to hold the giphy
+    // Creating a div to hold the giphys
     var giphyDiv = $("<div class='flex-container3'>");
 
     //Filling up the div with 10 cards:
@@ -33,7 +32,7 @@ function displaygiphyInfo() {
       giphyCard.append(pTitle);
 
       // Retrieving the URLs for the image
-      let image = $("<img class = 'gif'>").attr("src", response.data[i].images.original_still.url);
+      let image = $("<img class='gif'>").attr("src", response.data[i].images.original_still.url);
       image.attr("data-still", response.data[i].images.original_still.url);
       image.attr("data-animate", response.data[i].images.original.url);
       image.attr("data-state", "still");
@@ -50,13 +49,10 @@ function displaygiphyInfo() {
 
 // Function for displaying giphy data
 function renderButtons() {
-
-  // Deleting the giphys prior to adding new giphys
-  // (this is necessary otherwise you will have repeat buttons)
   $("#buttons-view").empty();
 
   // Looping through the array of topics
-  for (var i = 0; i < topics.length; i++) {
+  for (var i = 0; i < animals.length; i++) {
 
     // Then dynamicaly generating buttons for each giphy in the array
     // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
@@ -64,9 +60,9 @@ function renderButtons() {
     // Adding a class of giphy-btn to our button
     a.addClass("grid-item giphy-btn btn btn-dark btn-block rounded-pill");
     // Adding a data-attribute
-    a.attr("data-name", topics[i]);
+    a.attr("data-name", animals[i]);
     // Providing the initial button text
-    a.text(topics[i]);
+    a.text(animals[i]);
     // Adding the button to the buttons-view div
     $("#buttons-view").append(a);
   }
@@ -76,10 +72,10 @@ function renderButtons() {
 $("#add-animal").on("click", function (event) {
   event.preventDefault();
   // This line grabs the input from the textbox
-  var giphy = $("#giphy-input").val().trim();
+  var newAnimal = $("#giphy-input").val().trim();
 
   // Adding giphy from the textbox to our array
-  topics.push(giphy);
+  animals.push(newAnimal);
   // Calling renderButtons which handles the processing of our button array
   renderButtons();
 });
@@ -97,7 +93,7 @@ function animateGif() {
 };
 
 // Adding a few event listeners
-$(document).on("click", ".giphy-btn", displaygiphyInfo);
+$(document).on("click", ".giphy-btn", displayGiphyCards);
 $(document).on("click", ".gif", animateGif);
 // Calling the renderButtons function to display the initial buttons
 renderButtons();
