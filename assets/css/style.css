@@ -1,5 +1,6 @@
 body {
     background-image: url(../images/paisley.png);
+    background-color: aliceblue;
     font-family: 'Copse', serif;
 }
 h1 {
@@ -28,7 +29,7 @@ button, div, form, input {
     margin: 10px;
 }
 
-.grid-container1 {
+.flex-container1 {
 
     display: flex;
     flex-flow: row;
@@ -41,7 +42,7 @@ button, div, form, input {
     padding: 0px;
 }
 
-.grid-container2 {
+.flex-container2 {
     display: flex;
     flex-flow: row;
     flex-wrap: wrap;
@@ -53,7 +54,7 @@ button, div, form, input {
     padding: 0px;
 }
 
-.grid-container3 {
+.flex-container3 {
     display: flex;
     flex-flow: column;
     flex-wrap: wrap;

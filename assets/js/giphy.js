@@ -18,7 +18,7 @@ function displaygiphyInfo() {
   }).then(function (response) {
 
     // Creating a div to hold the giphy
-    var giphyDiv = $("<div class='grid-container2'>");
+    var giphyDiv = $("<div class='flex-container2'>");
 
     //Filling up the div with 10 cards:
 
