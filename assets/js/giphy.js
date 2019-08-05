@@ -18,14 +18,14 @@ function displaygiphyInfo() {
   }).then(function (response) {
 
     // Creating a div to hold the giphy
-    var giphyDiv = $("<div class='container'>");
+    var giphyDiv = $("<div class='grid-container2'>");
 
     //Filling up the div with 10 cards:
 
     for (var i = 0; i < response.data.length; i++) {
       var giphyCard = $("<div class='card'>");
       var rating = response.data[i].rating.toUpperCase();
-      var pOne = $("<p>").text("Rating: " + rating);
+      var pOne = $("<p class='rating'>").text("Rating: " + rating);
       giphyCard.append(pOne);
 
       // Retrieving the URLs for the image
