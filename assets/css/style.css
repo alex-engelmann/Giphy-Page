@@ -77,7 +77,7 @@ button, div, form, input {
     border-color: #1CD3DB;
 }
 
-.grid-item, input, h2 {
+.flex-item, input, h2 {
      display: flex;
 }
 
